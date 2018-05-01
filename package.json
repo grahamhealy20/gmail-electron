@@ -4,11 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
-    "dist": "build -mwl --x64 --ia32",
-    "postinstall": "install-app-deps"
+    "dist": "electron-builder"
   },
   "author": "",
   "license": "ISC",
@@ -18,6 +15,9 @@
     "electron-packager": "^12.0.1"
   },
   "build": {
-    "appId": "grahamhealy.gmail.app"
+    "artifactName": "${productName}-${version}.${ext}",
+    "appId": "grahamhealy.gmail.app",
+    "productName": "Gmail",
+    "asar": true
   }
 }
