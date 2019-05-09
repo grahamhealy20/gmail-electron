@@ -4,14 +4,26 @@ const path = require('path')
 const url = require('url')
 
 
-let win
-  
+let win;
+
+const WIDTH = 1400;
+const HEIGHT = 800;
+const URL = 'https://mail.google.com';
+
 function createWindow () {
     // Create the browser window.
-    win = new BrowserWindow({width: 1600, height: 1000, title: "Gmail"})
+    win = new BrowserWindow({
+        width: WIDTH,
+        height: HEIGHT,
+        title: "Gmail",
+        webPreferences: {
+            nodeIntegration: true,
+            webviewTag: true
+      }});
+
     win.setMenu(null);
   
-    // and load the index.html of the app.
+     // and load the index.html of the app.
     win.loadURL(url.format({
       pathname: path.join(__dirname, 'index.html'),
       protocol: 'file:',
